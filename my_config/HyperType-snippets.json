@@ -1,0 +1,37 @@
+[
+  {
+    "trigger": "agy --",
+    "expansion": "agy --dangerously-skip-permissions",
+    "kind": "text"
+  },
+  {
+    "trigger": "claude --",
+    "expansion": "claude --dangerously-skip-permissions",
+    "kind": "text"
+  },
+  {
+    "trigger": "codex --",
+    "expansion": "codex --yolo",
+    "kind": "text"
+  },
+  {
+    "trigger": "Ctrl+KeyL",
+    "expansion": "yeet mode commit and push respectivly and sync all changes in the workspace",
+    "kind": "shortcut"
+  },
+  {
+    "trigger": "brb",
+    "expansion": "be right back monkey",
+    "kind": "text"
+  },
+  {
+    "trigger": "dumb?",
+    "expansion": "are you dumb",
+    "kind": "text"
+  },
+  {
+    "trigger": "make installer",
+    "expansion": "complie a new installer with a version bump (sementic versioning) and put the newly complied installer on my desktop ",
+    "kind": "text"
+  }
+]
