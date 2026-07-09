@@ -102,11 +102,13 @@ button {
   gap: 9px;
   pointer-events: none;
 }
-/* Gold zaviv wordmark (in-app only). Tray/shortcut use logo tile icons. */
+/* Zaviv wordmark used in the in-app titlebar. */
 .wordmark {
   display: block;
-  height: 16px;
+  height: 18px;
   width: auto;
+  max-width: 116px;
+  object-fit: contain;
   transition: filter var(--smooth) var(--ease-out), opacity var(--smooth) var(--ease-out);
 }
 .wordmark.paused {
