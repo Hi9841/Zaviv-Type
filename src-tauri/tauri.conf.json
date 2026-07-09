@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "HyperType",
+  "productName": "zaviv type",
   "version": "1.0.5",
-  "identifier": "com.hypertype.desktop",
+  "identifier": "ai.zaviv.type",
   "build": {
     "devUrl": "http://localhost:1420",
     "frontendDist": "../dist",

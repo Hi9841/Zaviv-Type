@@ -1,5 +1,5 @@
 //! JSON persistence. A list of `{trigger, expansion, kind}` entries in
-//! %APPDATA%\HyperType\snippets.json. Writes go through a temp file + rename
+//! %APPDATA%\zaviv-type\snippets.json. Writes go through a temp file + rename
 //! so a crash mid-write can never corrupt the live file. Missing file on
 //! first run is seeded with a few example text snippets.
 //!
@@ -29,7 +29,7 @@ pub fn data_dir() -> PathBuf {
     std::env::var_os("APPDATA")
         .map(PathBuf::from)
         .unwrap_or_else(std::env::temp_dir)
-        .join("HyperType")
+        .join("zaviv-type")
 }
 
 pub fn data_file_path() -> PathBuf {
@@ -158,7 +158,7 @@ pub fn parse_snippets(text: &str) -> Result<Snippets, String> {
     if let Ok(map) = serde_json::from_str::<HashMap<String, String>>(text) {
         return Ok(Snippets::from_map(map));
     }
-    Err("Import file is not a HyperType snippets export.".to_string())
+    Err("Import file is not a zaviv type snippets export.".to_string())
 }
 
 fn parse_or_migrate(path: &Path, text: &str) -> Snippets {
@@ -217,7 +217,7 @@ mod tests {
 
     fn temp_path(name: &str) -> PathBuf {
         let mut p = std::env::temp_dir();
-        p.push(format!("hypertype_test_{name}_{}.json", std::process::id()));
+        p.push(format!("zaviv_type_test_{name}_{}.json", std::process::id()));
         p
     }
 

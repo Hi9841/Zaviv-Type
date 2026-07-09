@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="zavivGold" x1="24" y1="20" x2="232" y2="236" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C59441"/>
+      <stop offset="22%" stop-color="#FFF3C2"/>
+      <stop offset="46%" stop-color="#A87B2D"/>
+      <stop offset="70%" stop-color="#FFF3C2"/>
+      <stop offset="100%" stop-color="#C59441"/>
+    </linearGradient>
+  </defs>
+  <!-- Sparkle (from the logo's "i") -->
+  <g transform="translate(-349.75,25.5) scale(1.05)">
+    <path d="M 455,10 Q 455,42.5 480,42.5 Q 455,42.5 455,75 Q 455,42.5 430,42.5 Q 455,42.5 455,10 Z" fill="url(#zavivGold)"/>
+  </g>
+  <!-- Z -->
+  <g transform="translate(21.6,56) scale(1.12)">
+    <path d="M 40,50 L 150,50 L 70,145 L 140,145 L 150,115 L 150,150 L 40,150 L 120,55 L 50,55 L 40,85 Z" fill="url(#zavivGold)"/>
+  </g>
+</svg>

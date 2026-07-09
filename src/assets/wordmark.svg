@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="32 2 616 154" width="616" height="154" fill="none">
+  <defs>
+    <linearGradient id="wm" x1="40" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8A6A22"/>
+      <stop offset="18%" stop-color="#E7C063"/>
+      <stop offset="38%" stop-color="#7E5F1F"/>
+      <stop offset="60%" stop-color="#E7C063"/>
+      <stop offset="80%" stop-color="#8A6A22"/>
+      <stop offset="100%" stop-color="#E7C063"/>
+    </linearGradient>
+  </defs>
+  <!-- Z -->
+  <path d="M 40,50 L 150,50 L 70,145 L 140,145 L 150,115 L 150,150 L 40,150 L 120,55 L 50,55 L 40,85 Z" fill="url(#wm)"/>
+  <!-- A -->
+  <path d="M 238,50 L 252,50 L 302.35,145 L 330,149 L 330,150 L 280,150 L 267.81,127 L 202.19,127 L 184,150 L 160,150 L 160,149 L 187.65,145 Z M 203.25,125 L 235,65.1 L 266.75,125 Z" fill="url(#wm)" fill-rule="evenodd"/>
+  <!-- V1 floating extension -->
+  <path d="M 270,50 L 295,50 L 297.2,54 L 272.2,54 Z" fill="url(#wm)"/>
+  <!-- V1 body -->
+  <path d="M 300,50 L 325,50 L 365,122.72 L 405,50 L 410,50 L 355,150 Z" fill="url(#wm)"/>
+  <!-- I sparkle -->
+  <path d="M 455,10 Q 455,42.5 480,42.5 Q 455,42.5 455,75 Q 455,42.5 430,42.5 Q 455,42.5 455,10 Z" fill="url(#wm)"/>
+  <!-- I bar -->
+  <path d="M 450,85 L 460,85 L 460,150 L 450,150 Z" fill="url(#wm)"/>
+  <!-- V2 body -->
+  <path d="M 500,50 L 525,50 L 565,122.72 L 605,50 L 610,50 L 555,150 Z" fill="url(#wm)"/>
+  <!-- V2 floating extension -->
+  <path d="M 615,50 L 640,50 L 637.8,54 L 612.8,54 Z" fill="url(#wm)"/>
+</svg>

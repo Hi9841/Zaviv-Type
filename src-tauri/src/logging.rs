@@ -1,7 +1,7 @@
 //! Deliberately tiny logger: appends errors and critical events to a single
-//! file under %APPDATA%\HyperType. No background threads, no timers, no
+//! file under %APPDATA%\zaviv-type. No background threads, no timers, no
 //! per-keystroke logging. Debug output to stderr is gated behind the
-//! HYPERTYPE_DEBUG environment variable.
+//! ZAVIV_TYPE_DEBUG environment variable.
 
 use std::fs::OpenOptions;
 use std::io::Write;
@@ -12,16 +12,16 @@ use std::time::{SystemTime, UNIX_EPOCH};
 static LOG_PATH: OnceLock<PathBuf> = OnceLock::new();
 
 pub fn init() {
-    let path = crate::storage::data_dir().join("hypertype.log");
+    let path = crate::storage::data_dir().join("zaviv-type.log");
     if let Some(dir) = path.parent() {
         let _ = std::fs::create_dir_all(dir);
     }
     let _ = LOG_PATH.set(path);
-    info("HyperType started");
+    info("zaviv type started");
 }
 
 fn debug_enabled() -> bool {
-    std::env::var_os("HYPERTYPE_DEBUG").is_some()
+    std::env::var_os("ZAVIV_TYPE_DEBUG").is_some()
 }
 
 fn write_line(level: &str, msg: &str) {

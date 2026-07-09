@@ -1,0 +1,119 @@
+/**
+ * Zaviv Design Tokens
+ * Import once in your global stylesheet: @import "./tokens/tokens.css";
+ */
+
+:root {
+  /* Brand */
+  --zaviv-brand: #d97757;
+  --zaviv-brand-hsl: 15 63% 60%;
+  --zaviv-brand-foreground: #f9f6f0;
+  --zaviv-accent-warm: #e5a081;
+
+  /* Light — Warm cream (default) */
+  --zaviv-background: #f4f1eb;
+  --zaviv-foreground: #1a1715;
+  --zaviv-card: #fbf9f4;
+  --zaviv-card-soft: #f2efe8;
+  --zaviv-muted: #5e564f;
+  --zaviv-subtle: #726c64;
+  --zaviv-border: rgba(28, 24, 20, 0.08);
+  --zaviv-border-strong: rgba(28, 24, 20, 0.14);
+  --zaviv-primary: #1a1715;
+  --zaviv-primary-foreground: #f4f1eb;
+  --zaviv-secondary: #efe9dd;
+  --zaviv-active-bg: #ffffff;
+  --zaviv-ring: hsl(24 11% 20%);
+
+  /* Status */
+  --zaviv-live: #e5a081;
+  --zaviv-waiting: #4ea0ff;
+  --zaviv-error: #b23535;
+
+  /* Warm neutral scale */
+  --zaviv-neutral-50: #faf9f6;
+  --zaviv-neutral-100: #f5f2ec;
+  --zaviv-neutral-200: #eae5db;
+  --zaviv-neutral-300: #d7d0c3;
+  --zaviv-neutral-400: #a8a092;
+  --zaviv-neutral-500: #78716a;
+  --zaviv-neutral-600: #57514a;
+  --zaviv-neutral-700: #423d36;
+  --zaviv-neutral-800: #292420;
+  --zaviv-neutral-900: #1c1815;
+  --zaviv-neutral-950: #0f0d0b;
+
+  /* Typography */
+  --zaviv-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --zaviv-font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --zaviv-font-mono: "IBM Plex Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing */
+  --zaviv-space-edge: 16px;
+  --zaviv-space-section: 24px;
+  --zaviv-space-card: 16px;
+
+  /* Radii */
+  --zaviv-radius-chip: 8px;
+  --zaviv-radius-card: 12px;
+  --zaviv-radius-sheet: 20px;
+  --zaviv-radius-pill: 999px;
+
+  /* Motion */
+  --zaviv-motion-duration: 180ms;
+  --zaviv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+.dark,
+[data-theme="dark"] {
+  --zaviv-background: #1a1715;
+  --zaviv-foreground: #f4f1eb;
+  --zaviv-card: #23201d;
+  --zaviv-card-soft: #2a2622;
+  --zaviv-muted: #b6aea2;
+  --zaviv-subtle: #8e877d;
+  --zaviv-border: rgba(255, 255, 255, 0.08);
+  --zaviv-border-strong: rgba(255, 255, 255, 0.14);
+  --zaviv-primary: #f4f1eb;
+  --zaviv-primary-foreground: #1a1715;
+  --zaviv-secondary: #36322d;
+  --zaviv-active-bg: #36322d;
+  --zaviv-ring: hsl(40 29% 80%);
+  --zaviv-error: #ec6a6a;
+
+  color-scheme: dark;
+}
+
+/* Utility classes (optional) */
+.zaviv-surface {
+  background: var(--zaviv-background);
+  color: var(--zaviv-foreground);
+}
+
+.zaviv-card {
+  background: var(--zaviv-card);
+  border: 1px solid var(--zaviv-border);
+  border-radius: var(--zaviv-radius-card);
+}
+
+.zaviv-btn-primary {
+  background: var(--zaviv-primary);
+  color: var(--zaviv-primary-foreground);
+  border-radius: var(--zaviv-radius-chip);
+  transition: transform var(--zaviv-motion-duration) var(--zaviv-motion-ease);
+}
+
+.zaviv-btn-brand {
+  background: var(--zaviv-brand);
+  color: var(--zaviv-brand-foreground);
+  border-radius: var(--zaviv-radius-chip);
+}
+
+.zaviv-wordmark {
+  font-family: var(--zaviv-font-sans);
+  font-weight: 500;
+  letter-spacing: 0.065em;
+  text-transform: lowercase;
+}

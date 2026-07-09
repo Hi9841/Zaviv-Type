@@ -75,7 +75,7 @@ pub const RESTORE_DELAY_MAX_MS: u32 = 15_000;
 
 /// Extra delay when restoring a clipboard that had image/file/HTML-like
 /// formats. Some apps consume paste asynchronously; restoring too early can
-/// make them process the old clipboard instead of HyperType's text.
+/// make them process the old clipboard instead of zaviv type's text.
 const RICH_CLIPBOARD_RESTORE_MIN_MS: u32 = 5_000;
 const SENSITIVE_TARGET_RESTORE_MIN_MS: u32 = 12_000;
 const LONG_TEXT_RESTORE_STEP_CHARS: usize = 500;

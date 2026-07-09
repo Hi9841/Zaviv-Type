@@ -1,6 +1,0 @@
-{
-  "enabledMcpjsonServers": [
-    "prunade-memory",
-    "pruneagent-memory"
-  ]
-}

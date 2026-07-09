@@ -51,7 +51,7 @@ fn pump_for(ms: u64) {
 fn edit_window() -> HWND {
     const ES_MULTILINE: u32 = 0x0004;
     let class = wide("EDIT");
-    let title = wide("hypertype-e2e");
+    let title = wide("zaviv-type-e2e");
     unsafe {
         let hmod = GetModuleHandleW(None).unwrap_or_default();
         CreateWindowExW(

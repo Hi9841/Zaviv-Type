@@ -60,7 +60,7 @@ const inTauri = "__TAURI_INTERNALS__" in window;
 // touches the keyboard/engine path or the global-shortcut plugin directly;
 // it only manages snippets and state, and Rust does all OS-level work.
 // Autostart goes through the autostart plugin's own bindings (registers a
-// per-user run entry launching `hypertype.exe --minimized`).
+// per-user run entry launching `zaviv-type.exe --minimized`).
 const tauriApi: Api = {
   getStatus: () => invoke<Status>("get_status"),
   getSnippets: () => invoke<SnippetView[]>("get_snippets"),
@@ -71,8 +71,8 @@ const tauriApi: Api = {
   removeSnippet: (trigger) => invoke<void>("remove_snippet", { trigger }),
   exportSnippets: async () => {
     const path = await save({
-      defaultPath: "HyperType-snippets.json",
-      filters: [{ name: "HyperType snippets", extensions: ["json"] }],
+      defaultPath: "zaviv-type-snippets.json",
+      filters: [{ name: "zaviv type snippets", extensions: ["json"] }],
     });
     if (!path) return null;
     await invoke<void>("export_snippets", { path });
@@ -81,7 +81,7 @@ const tauriApi: Api = {
   importSnippets: async () => {
     const path = await open({
       multiple: false,
-      filters: [{ name: "HyperType snippets", extensions: ["json"] }],
+      filters: [{ name: "zaviv type snippets", extensions: ["json"] }],
     });
     if (!path || Array.isArray(path)) return null;
     return invoke<ImportSummary>("import_snippets", { path });
@@ -159,10 +159,10 @@ function browserMock(): Api {
       );
       const a = document.createElement("a");
       a.href = url;
-      a.download = "HyperType-snippets.json";
+      a.download = "zaviv-type-snippets.json";
       a.click();
       URL.revokeObjectURL(url);
-      return "HyperType-snippets.json";
+      return "zaviv-type-snippets.json";
     },
     importSnippets: async () =>
       new Promise<ImportSummary | null>((resolve) => {

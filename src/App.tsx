@@ -9,7 +9,7 @@ import {
   type TriggerKind,
 } from "./lib/ipc";
 import { chordFromEvent, chordKeys } from "./lib/shortcut";
-import logo from "./assets/logo.png";
+import logo from "./assets/logo.svg";
 
 const INSERT_MODES: InsertMode[] = ["auto", "paste", "type"];
 const INSERT_LABEL: Record<InsertMode, string> = { auto: "Auto", paste: "Paste", type: "Type" };
@@ -449,9 +449,8 @@ export default function App() {
     <div class="app">
       <header class="titlebar" data-tauri-drag-region>
         <div class="brand" data-tauri-drag-region>
-          {/* Brand mark (HyperType_Logo_Assets, gradient-clean 128px shown at
-              20px). Doubles as the engine light: full color while running,
-              dimmed to gray while paused. */}
+          {/* Zaviv glyph (sparkle + Z). Doubles as the engine light: full
+              gold while running, dimmed while paused. */}
           <img
             class="mark"
             classList={{ paused: !enabled() }}
@@ -461,7 +460,7 @@ export default function App() {
             height="20"
           />
           <span class="name" data-tauri-drag-region>
-            HyperType
+            zʌviv type
           </span>
         </div>
         <div class="win-controls">
@@ -917,7 +916,7 @@ export default function App() {
         <span class="hint">Triggers expand anywhere in Windows, at word boundaries.</span>
         <span class="ver">v{status()?.version ?? "1.0.5"}</span>
         <button class="quit" onClick={() => api.quit()}>
-          Quit HyperType
+          Quit zaviv type
         </button>
       </footer>
       </main>

@@ -49,7 +49,7 @@ fn open_main_window(app: &AppHandle) {
         let _ = window.set_focus();
     } else {
         let _ = WebviewWindowBuilder::new(app, "main", WebviewUrl::App("index.html".into()))
-            .title("HyperType")
+            .title("zaviv type")
             // Fixed phone-portrait ratio (9:16); the UI is designed for
             // exactly this footprint, so the window doesn't resize.
             .inner_size(480.0, 854.0)
@@ -60,7 +60,7 @@ fn open_main_window(app: &AppHandle) {
             // window never flashes white.
             .decorations(false)
             .theme(Some(tauri::Theme::Dark))
-            .background_color(tauri::window::Color(0, 0, 0, 255))
+            .background_color(tauri::window::Color(26, 23, 21, 255))
             .build();
     }
 }
@@ -68,7 +68,7 @@ fn open_main_window(app: &AppHandle) {
 fn build_tray(app: &AppHandle, state: Arc<AppState>) -> tauri::Result<()> {
     let enabled = state.enabled.load(Ordering::Relaxed);
     let toggle = CheckMenuItem::with_id(app, "toggle", "Enabled", true, enabled, None::<&str>)?;
-    let open = MenuItem::with_id(app, "open", "Open HyperType", true, None::<&str>)?;
+    let open = MenuItem::with_id(app, "open", "Open zaviv type", true, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
     let separator = PredefinedMenuItem::separator(app)?;
     let menu = Menu::with_items(app, &[&toggle, &separator, &open, &quit])?;
@@ -78,7 +78,7 @@ fn build_tray(app: &AppHandle, state: Arc<AppState>) -> tauri::Result<()> {
     let toggle_item = toggle.clone();
     TrayIconBuilder::with_id("main")
         .icon(app.default_window_icon().unwrap().clone())
-        .tooltip("HyperType")
+        .tooltip("zaviv type")
         .menu(&menu)
         .show_menu_on_left_click(false)
         .on_menu_event(move |app, event| match event.id.as_ref() {
@@ -184,7 +184,7 @@ fn main() {
             Ok(())
         })
         .build(tauri::generate_context!())
-        .expect("failed to build HyperType")
+        .expect("failed to build zaviv type")
         .run(|_app, event| {
             if let RunEvent::ExitRequested { api, .. } = event {
                 // Keep running in the tray when the last window closes, unless

@@ -1,39 +1,46 @@
-/* HyperType design system. Pure-black instrument panel: OLED-black window,
-   flat hairline-separated sections (no cards), one systemBlue accent.
-   See DESIGN.md. */
+/* Zaviv design system — warm dark instrument panel for the text expander.
+   Tokens map to zaviv-design-system (cream/ink + terracotta accent). */
 
 :root {
-  --bg: #000000;
-  --raise: #161616;
-  --field: #131313;
-  --line: #1f1f1f;
-  --line-2: #2e2e2e;
-  --sep: #1a1a1a;
-  --control: #262626;
-  --control-line: #3a3a3a;
-  --ink: #f2f2f2;
-  --ink-2: #a3a3a3;
-  --ink-3: #7a7a7a;
-  /* Brand purple from HyperType_Logo_Assets (brand-purple #7c2dff for
-     fills, electric-violet #a043ff for text/outlines on black, which
-     needs the lighter step to hit 4.5:1). */
-  --accent: #7c2dff;
-  --accent-hover: #8d47ff;
-  --accent-down: #6d1ef0;
-  --accent-ink: #a043ff;
-  --ring: rgba(124, 45, 255, 0.35);
-  --ring-soft: rgba(124, 45, 255, 0.2);
-  --danger: #ff453a;
-  --danger-tint: rgba(255, 69, 58, 0.12);
+  /* Surfaces (Zaviv dark) */
+  --bg: #1a1715;
+  --raise: #23201d;
+  --field: #2a2622;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.14);
+  --sep: rgba(255, 255, 255, 0.08);
+  --control: #36322d;
+  --control-line: rgba(255, 255, 255, 0.14);
+  --ink: #f4f1eb;
+  --ink-2: #b6aea2;
+  --ink-3: #8e877d;
 
-  --font-ui: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "Cascadia Code", "Cascadia Mono", Consolas, ui-monospace, monospace;
+  /* Brand terracotta + monochrome primary */
+  --brand: #d97757;
+  --brand-foreground: #f9f6f0;
+  --accent: #d97757;
+  --accent-hover: #e5a081;
+  --accent-down: #c46545;
+  --accent-ink: #e5a081;
+  --primary: #f4f1eb;
+  --primary-foreground: #1a1715;
+  --ring: rgba(217, 119, 87, 0.35);
+  --ring-soft: rgba(217, 119, 87, 0.18);
+  --danger: #ec6a6a;
+  --danger-tint: rgba(236, 106, 106, 0.12);
 
-  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Menlo, Monaco, Consolas, ui-monospace, monospace;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --spring: cubic-bezier(0.32, 1.25, 0.32, 1);
   --fast: 130ms;
   --smooth: 180ms;
+  --radius-chip: 8px;
+  --radius-card: 12px;
+
+  color-scheme: dark;
 }
 
 * {
@@ -100,14 +107,15 @@ button {
   transition: filter var(--smooth) var(--ease-out), opacity var(--smooth) var(--ease-out);
 }
 .mark.paused {
-  filter: grayscale(1) brightness(0.6);
-  opacity: 0.7;
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.65;
 }
 .name {
   font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: 0.065em;
+  text-transform: lowercase;
 }
 
 .win-controls {
@@ -190,8 +198,6 @@ button {
 .setting-title {
   font-weight: 600;
 }
-/* Subtitles wrap rather than truncate: every word of a setting's
-   explanation must be readable. */
 .setting-sub {
   font-size: 12.5px;
   line-height: 1.4;
@@ -228,7 +234,6 @@ button {
 .switch:hover {
   border-color: var(--ink-3);
 }
-/* iOS press feel: the knob stretches while held, then springs to its side. */
 .switch:active .knob {
   width: 22px;
 }
@@ -287,7 +292,6 @@ button {
 .composer-card {
   gap: 8px;
 }
-/* Narrow phone-portrait window: the composer stacks vertically. */
 .composer {
   display: flex;
   flex-direction: column;
@@ -295,14 +299,13 @@ button {
   gap: 8px;
 }
 
-/* Segmented control with a sliding thumb */
 .seg {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 32px;
   padding: 2px;
-  border-radius: 7px;
+  border-radius: var(--radius-chip);
   background: var(--field);
   border: 1px solid var(--line);
 }
@@ -312,8 +315,8 @@ button {
   left: 2px;
   width: calc(50% - 2px);
   height: calc(100% - 4px);
-  border-radius: 5px;
-  background: var(--line-2);
+  border-radius: 6px;
+  background: var(--control);
   transition: transform var(--smooth) var(--spring);
 }
 .seg[data-mode="shortcut"] .seg-thumb,
@@ -328,7 +331,6 @@ button {
 .seg-mini button {
   font-size: 11px;
 }
-/* Three-way segment: the thumb is a third wide and slides by cell index. */
 .seg-3 {
   grid-template-columns: 1fr 1fr 1fr;
   width: 150px;
@@ -350,8 +352,6 @@ button {
   font-size: 10.5px;
 }
 
-/* Inline-editable numeric value in a setting subtitle: focusing selects the
-   whole number (select-all-and-retype), Enter/blur commits, Esc reverts. */
 .value-edit {
   width: 4ch;
   padding: 0;
@@ -386,14 +386,14 @@ button {
   font-weight: 600;
   color: var(--ink-2);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: color var(--fast) var(--ease-out);
 }
 .seg button:hover {
   color: var(--ink);
 }
 .seg button.active {
-  color: #fff;
+  color: var(--ink);
 }
 .seg button:focus-visible {
   outline-offset: -2px;
@@ -404,7 +404,7 @@ button {
   padding: 0 10px;
   background: var(--field);
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--radius-chip);
   color: var(--ink);
   font-size: 13px;
   outline: none;
@@ -457,13 +457,14 @@ button {
   }
 }
 
+/* Primary CTA — monochrome cream on dark (Zaviv button pattern) */
 .add {
   height: 32px;
   width: 100%;
   border: 0;
-  border-radius: 7px;
-  background: var(--accent);
-  color: #fff;
+  border-radius: var(--radius-chip);
+  background: var(--primary);
+  color: var(--primary-foreground);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -472,10 +473,11 @@ button {
     transform var(--fast) var(--ease-out);
 }
 .add:hover:enabled {
-  background: var(--accent-hover);
+  background: #fff;
+  transform: translateY(-1px);
 }
 .add:active:enabled {
-  background: var(--accent-down);
+  background: #e8e4dc;
   transform: scale(0.98);
 }
 .add:disabled {
@@ -555,7 +557,7 @@ button {
   align-items: center;
   gap: 10px;
   padding: 8px 10px;
-  border-radius: 7px;
+  border-radius: var(--radius-chip);
   transition: background var(--fast) var(--ease-out);
 }
 .row + .row::before {
@@ -609,8 +611,6 @@ button {
 .grip:active {
   cursor: grabbing;
 }
-/* While a drag is live: bystander rows glide out of the way, the dragged
-   row follows the pointer raw (no transition) and reads as lifted. */
 .list.reordering {
   touch-action: none;
 }
@@ -788,8 +788,6 @@ button {
   max-width: 40ch;
 }
 
-/* ---- Scrollbar: none, phone-style. The list still wheel-scrolls. ---- */
-
 .list::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -832,8 +830,6 @@ button {
   color: var(--danger);
   background: var(--danger-tint);
 }
-
-/* ---- Reduced motion ---- */
 
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -1,8 +1,8 @@
 [package]
-name = "hypertype"
+name = "zaviv-type"
 version = "1.0.5"
-description = "HyperType - instant text expansion for Windows"
-authors = ["HyperType"]
+description = "zaviv type — instant text expansion for Windows"
+authors = ["zaviv"]
 edition = "2021"
 rust-version = "1.77"
 
