@@ -33,8 +33,9 @@ Canonical tokens also live in `src/tokens.css` (copied from the design system).
 
 | Asset | Use |
 |-------|-----|
-| `src/assets/logo.svg` | Titlebar glyph (Z + sparkle, gold gradient) |
-| `src-tauri/icons/*` | Tray, window, NSIS installer (cream Z on `#171513`) |
+| `zaviv-default.svg` | Canonical mark: white `zʌviv` on `#0f1115` rounded tile |
+| `src/assets/logo.svg` | Titlebar (copy of `zaviv-default.svg`) |
+| `src-tauri/icons/*` | Tray, window, NSIS installer (rasterized from the same mark) |
 
 ## Window
 

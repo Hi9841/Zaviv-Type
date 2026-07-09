@@ -449,18 +449,18 @@ export default function App() {
     <div class="app">
       <header class="titlebar" data-tauri-drag-region>
         <div class="brand" data-tauri-drag-region>
-          {/* Zaviv glyph (sparkle + Z). Doubles as the engine light: full
-              gold while running, dimmed while paused. */}
+          {/* zaviv-default.svg mark. Doubles as the engine light: full
+              contrast while running, dimmed while paused. */}
           <img
             class="mark"
             classList={{ paused: !enabled() }}
             src={logo}
             alt=""
-            width="20"
-            height="20"
+            width="22"
+            height="22"
           />
           <span class="name" data-tauri-drag-region>
-            zʌviv type
+            type
           </span>
         </div>
         <div class="win-controls">
