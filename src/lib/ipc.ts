@@ -234,6 +234,28 @@ function browserMock(): Api {
 
 export const api: Api = inTauri ? tauriApi : browserMock();
 
+/** Normalize Tauri / browser throwables into a readable message. */
+export function formatError(err: unknown): string {
+  if (typeof err === "string") return err;
+  if (err instanceof Error) return err.message || err.name;
+  if (err && typeof err === "object") {
+    const o = err as { message?: unknown; error?: unknown; toString?: () => string };
+    if (typeof o.message === "string" && o.message) return o.message;
+    if (typeof o.error === "string" && o.error) return o.error;
+    try {
+      const json = JSON.stringify(err);
+      if (json && json !== "{}") return json;
+    } catch {
+      /* ignore */
+    }
+    if (typeof o.toString === "function") {
+      const s = o.toString();
+      if (s && s !== "[object Object]") return s;
+    }
+  }
+  return "Something went wrong.";
+}
+
 /** Frameless-window controls for the custom titlebar. No-ops in a browser. */
 export const win = {
   minimize: () => (inTauri ? getCurrentWindow().minimize() : Promise.resolve()),

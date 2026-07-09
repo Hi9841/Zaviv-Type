@@ -1,6 +1,7 @@
 import { createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import {
   api,
+  formatError,
   onEnabledChanged,
   win,
   type InsertMode,
@@ -295,7 +296,7 @@ export default function App() {
       await Promise.all([refetchSnippets(), refetchStatus()]);
       if (mode() === "text") triggerInput?.focus();
     } catch (err) {
-      setError(String(err));
+      setError(formatError(err));
     } finally {
       setBusy(false);
     }
@@ -315,7 +316,7 @@ export default function App() {
       cancelEdit();
       await Promise.all([refetchSnippets(), refetchStatus()]);
     } catch (err) {
-      setEditError(String(err));
+      setEditError(formatError(err));
     } finally {
       setEditBusy(false);
     }
@@ -404,6 +405,8 @@ export default function App() {
     if (s) mutateStatus({ ...s, count: Math.max(0, s.count - 1) });
     try {
       await api.removeSnippet(t);
+    } catch (err) {
+      setTransferMessage(formatError(err));
     } finally {
       refetchSnippets();
       refetchStatus();
@@ -418,7 +421,7 @@ export default function App() {
       const path = await api.exportSnippets();
       if (path) setTransferMessage("Exported");
     } catch (err) {
-      setTransferMessage(String(err));
+      setTransferMessage(formatError(err));
     } finally {
       setTransferBusy(false);
     }
@@ -439,7 +442,7 @@ export default function App() {
         await Promise.all([refetchSnippets(), refetchStatus()]);
       }
     } catch (err) {
-      setTransferMessage(String(err));
+      setTransferMessage(formatError(err));
     } finally {
       setTransferBusy(false);
     }
@@ -463,10 +466,24 @@ export default function App() {
           </span>
         </div>
         <div class="win-controls">
-          <button class="winbtn" aria-label="Minimize" onClick={() => win.minimize()}>
+          <button
+            type="button"
+            class="winbtn"
+            aria-label="Minimize"
+            onClick={() => {
+              void win.minimize();
+            }}
+          >
             &#xE921;
           </button>
-          <button class="winbtn close" aria-label="Close" onClick={() => win.close()}>
+          <button
+            type="button"
+            class="winbtn close"
+            aria-label="Close"
+            onClick={() => {
+              void win.close();
+            }}
+          >
             &#xE8BB;
           </button>
         </div>
@@ -914,7 +931,13 @@ export default function App() {
       <footer class="foot">
         <span class="hint">Triggers expand anywhere in Windows, at word boundaries.</span>
         <span class="ver">v{status()?.version ?? "1.0.5"}</span>
-        <button class="quit" onClick={() => api.quit()}>
+        <button
+          type="button"
+          class="quit"
+          onClick={() => {
+            void api.quit();
+          }}
+        >
           Quit zaviv type
         </button>
       </footer>
