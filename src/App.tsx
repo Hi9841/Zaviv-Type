@@ -9,7 +9,7 @@ import {
   type TriggerKind,
 } from "./lib/ipc";
 import { chordFromEvent, chordKeys } from "./lib/shortcut";
-import logo from "./assets/logo.svg";
+import wordmark from "./assets/wordmark.svg";
 
 const INSERT_MODES: InsertMode[] = ["auto", "paste", "type"];
 const INSERT_LABEL: Record<InsertMode, string> = { auto: "Auto", paste: "Paste", type: "Type" };
@@ -449,15 +449,14 @@ export default function App() {
     <div class="app">
       <header class="titlebar" data-tauri-drag-region>
         <div class="brand" data-tauri-drag-region>
-          {/* zaviv-default.svg mark. Doubles as the engine light: full
-              contrast while running, dimmed while paused. */}
+          {/* In-app brand: gold wordmark. OS/tray/shortcut icons use
+              zaviv-default.svg separately. Dims while expansion is paused. */}
           <img
-            class="mark"
+            class="wordmark"
             classList={{ paused: !enabled() }}
-            src={logo}
-            alt=""
-            width="22"
-            height="22"
+            src={wordmark}
+            alt="zaviv"
+            height="16"
           />
           <span class="name" data-tauri-drag-region>
             type

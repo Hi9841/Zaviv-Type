@@ -33,9 +33,9 @@ Canonical tokens also live in `src/tokens.css` (copied from the design system).
 
 | Asset | Use |
 |-------|-----|
-| `zaviv-default.svg` | Canonical mark: white `zʌviv` on `#0f1115` rounded tile |
-| `src/assets/logo.svg` | Titlebar (copy of `zaviv-default.svg`) |
-| `src-tauri/icons/*` | Tray, window, NSIS installer (rasterized from the same mark) |
+| `src/assets/wordmark.svg` | **In-app titlebar** — gold gradient wordmark |
+| `zaviv-default.svg` / `src/assets/logo.svg` | **Outside app** — tray, shortcuts, Start Menu, installer |
+| `src-tauri/icons/*` | Rasterized from `zaviv-default` for OS surfaces |
 
 ## Window
 
