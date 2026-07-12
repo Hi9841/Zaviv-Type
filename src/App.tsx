@@ -461,8 +461,14 @@ export default function App() {
             height="18"
           />
           <span class="name" data-tauri-drag-region>
-            type
+            smith
           </span>
+          <span
+            class="status-dot"
+            classList={{ live: enabled() }}
+            aria-hidden="true"
+            data-tauri-drag-region
+          />
         </div>
         <div class="win-controls">
           <button
@@ -575,6 +581,7 @@ export default function App() {
                 max="1500"
                 step="50"
                 value={wpm()}
+                style={{ "--fill": `${((wpm() - 100) / (1500 - 100)) * 100}%` }}
                 aria-label="Typing speed in words per minute"
                 onInput={(e) => setWpmDrag(Number(e.currentTarget.value))}
                 onChange={(e) => commitWpm(Number(e.currentTarget.value))}
@@ -633,6 +640,7 @@ export default function App() {
                 max="15000"
                 step="100"
                 value={restoreMs()}
+                style={{ "--fill": `${((restoreMs() - 3000) / (15000 - 3000)) * 100}%` }}
                 aria-label="Clipboard restore delay in milliseconds"
                 onInput={(e) => setRestoreDrag(Number(e.currentTarget.value))}
                 onChange={(e) => commitRestoreDelay(Number(e.currentTarget.value))}
@@ -937,7 +945,7 @@ export default function App() {
             void api.quit();
           }}
         >
-          Quit zaviv type
+          Quit zaviv smith
         </button>
       </footer>
       </main>

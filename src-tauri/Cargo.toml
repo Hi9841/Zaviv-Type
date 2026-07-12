@@ -1,6 +1,6 @@
 [package]
 name = "zaviv-type"
-version = "1.0.6"
+version = "1.0.7"
 description = "zaviv type — instant text expansion for Windows"
 authors = ["zaviv"]
 edition = "2021"
